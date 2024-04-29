@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Users</title>
+    </head>
+    <body>
+        {% if message %}
+             <div>{{ message }}</div>
+        {% endif %}
+        <img src="logo.jpg" alt="Logo"  width="140" height="80" style="border: 1px solid rgb(212, 120, 155);">
+        <form action="{% url 'login' %}" method="post">
+            {%  csrf_token %}
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="password">
+            <br>
+            <br>
+            <input type="submit" value="login" >
+            <br>
+            <br>
+            <a href="{% url 'account' %}">Don't have an account </a>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> {{ event.name }} </title>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{% url 'add_event' %}"> Add Event </a></li>
+                <li><a href="{% url 'logout'%}"> Logout </a></li>
+            </ul>
+        </nav>
+        <br><br><br>
+        <h1>{{ event.name }}</h1>
+        <p>Date: {{ event.date }}</p>
+        <p>Location: {{ event.location }}</p>
+        <a href="{% url 'event_delete' event.id %}">Delete</a>
+        <br>
+        <a href="{% url 'event_update' event.id %}">Update</a>
+        <br>
+        <a href="{% url 'event_list' %}">Back to Event List</a>
+        <br>
+        <a href="{% url 'event_list' %}"> Register Event </a>
+    </body>
+</html>

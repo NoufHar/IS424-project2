@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event lists</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{% url 'add_event' %}"> Add Event </a></li>
+                <li><a href="{% url 'logout'%}"> Logout </a></li>
+            </ul>
+        </nav>
+        <br><br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.location }}</td>
+                    <td><a href="{% url 'event_detail' event.id %}"> Tell me more </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'add_event' %}">Add Event</a>
+    </body>
+</html>
